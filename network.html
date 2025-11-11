@@ -1,0 +1,98 @@
+Computer Networking Definitions (Hypothetically 2 Marks Each)
+define Circuit Switched network
+A Circuit Switched network is characterized by a system where a dedicated path (circuit) is established before communication starts. This path is reserved exclusively for the two communicating parties. A communication session in circuit switching occurs in three distinct phases:
+1. Setup Phase: A route is established, and intermediate switches reserve resources (like buffers, channels, and bandwidth) for the connection.
+2. Data Transfer Phase: Data is transmitted in a continuous stream. Since the path is dedicated, all packets follow the same route and arrive in order with minimal delay.
+3. Teardown Phase: After the session ends, the dedicated resources are released, becoming available for new connections.
+Datagram network
+A Datagram network is a type of connectionless packet switching approach. In this model:
+• The message is divided into smaller units called packets.
+• Each packet is treated independently.
+• Each packet carries the full destination address.
+• Packets may follow different paths and arrive out of order.
+• The destination requires reordering of the packets to reconstruct the original message.
+• An example of a protocol using this approach is the Internet Protocol (IP).
+List any two functions of data link layer.
+The Data Link Layer (Layer 2 of the OSI model) is responsible for:
+1. Node-to-node delivery of frames over a physical link.
+2. Packaging raw bits from the physical layer into frames.
+(Note: Other key responsibilities include ensuring reliable data transmission over a physical medium prone to noise and handling error detection and correction.)
+define Checksum
+Checksum is an error detection technique used primarily in protocols like TCP, UDP, and IP. The process involves:
+1. Segmentation: Data is divided into equal segments.
+2. Addition: All segments are added together using 1’s complement arithmetic.
+3. Checksum Generation: The complement of the result becomes the checksum, which is then appended to the original data.
+4. Verification (At the Receiver): The receiver adds all received segments, including the checksum. If the sum is all 1s, no error is detected; otherwise, an error is flagged.
+Define IP address
+An IP address is the Logical Address used in the TCP/IP protocol suite.
+• It is the address assigned at the Network Layer.
+• It is used to identify a device globally across networks.
+• Examples include IPv4 addresses (e.g., 192.168.1.10) or IPv6 addresses (e.g., 2001:db8::1).
+Define both directed & undirected transmission media
+Transmission media lie below the Physical Layer (sometimes referred to as “Layer 0”). They are categorized based on how the signal is guided:
+• Directed (Guided) Media: These media use physical conductors. The medium itself is the actual path used. Examples include Twisted Pair Cable, Coaxial Cable, and Fiber Optic Cable.
+• Undirected (Unguided) Media: In these media, signals travel freely in space without physical conductors. Examples include Radio Waves, Microwaves (terrestrial and satellite communication), and Infrared (IR).
+List any two functions of physical layer
+The Physical Layer (Layer 1 of the OSI model) is responsible for:
+1. Moving individual bits from one node to the next.
+2. Controlling the transmission media and defining how bits (0s and 1s) are transmitted over the medium.
+define switching
+Switching is a mechanism used in computer networks that provides a better solution than relying solely on costly mesh or star topologies, or capacity-limited bus topologies. Switching involves using switches to create temporary connections between devices. In a switched network, some switches connect directly to end systems (like computers), while others function solely as routing devices.
+
+--------------------------------------------------------------------------------
+Detailed Explanations (Hypothetically 10 Marks Each)
+OSI Ref? (OSI Model Explanation)
+The Open Systems Interconnection (OSI) model was developed by the International Standards Organization (ISO). It was first introduced in the late 1970s and serves as a reference guide that divides complex network communication into seven manageable layers, simplifying the process of designing, implementing, and troubleshooting networks.
+Core Purposes of the OSI Model:
+• Standardization and Interoperability: It defines a universal set of rules, ensuring that devices and applications from different hardware and software vendors can communicate seamlessly.
+• Simplification and Modularity: By breaking down complex tasks, the model allows each layer to handle a specific function (e.g., routing or encryption). This modularity means updates or changes can be made to one layer without affecting the whole system.
+• Troubleshooting: It helps network engineers identify and resolve issues systematically, layer by layer.
+Summary of OSI Layers:
+OSI Layer
+Name
+Function/Responsibility based on Sources
+Layer 7
+Application
+Runs services like HTTP, HTTPS, and DNS (e.g., web sites, streaming platforms).
+Layer 6
+Presentation
+Handles encryption (TLS/SSL), data compression, and serialization (e.g., JSON, XML).
+Layer 5
+Session
+Maintains and manages user sessions, connections, and authentication.
+Layer 4
+Transport
+Supports TCP/UDP, ensuring reliable or fast delivery, and handles the retransmission of lost segments.
+Layer 3
+Network
+Handles IP addressing, routing, and connectivity (e.g., within a VPC).
+Layer 2
+Data Link
+Responsible for node-to-node delivery of frames, uses MAC addressing, switching, and handles error detection and correction.
+Layer 1
+Physical
+Responsible for moving individual bits from one node to the next and deals with the physical hardware (cables, fiber optics, switches).
+ICMP protocol and message type
+The Internet Control Message Protocol (ICMP) is an essential protocol used for error reporting and diagnostic functions in IP networks. ICMP works alongside the IP protocol because the IP protocol itself has no built-in error-reporting or error correcting mechanism. ICMP is crucial for notifying the original host when a problem occurs, such as a router discarding a datagram.
+Key ICMP Message Types and Functions:
+1. Destination Un-reachable: This error message is generated by the host or its inbound gateway to inform the client that the intended destination cannot be reached for some reason.
+2. Time Exceeded Message: This error message is sent when a packet’s Time-to-Live (TTL) value reaches zero before it reaches its destination. Its purpose is to inform the source that the packet was discarded. Tools like traceroute commonly use this message.
+3. Source Quench Message: A control message sent by a receiver if packets are arriving too fast. It acts as a request to reduce the traffic rate and informs the sender to slow down, preventing packet loss due to congestion.
+4. Redirection Message: This is a control message sent by a router to inform a host that a better route is available for a specific destination. This helps optimize routing by guiding hosts to use a more efficient gateway.
+5. Parameter Problem: This error message is generated when a router or host discovers an invalid or missing field in the IP header. It indicates that the packet cannot be processed due to incorrect parameters, notifying the source about the header issue so corrective action can be taken.
+Faces of data transfer in datagram switch and networks
+Data transfer in datagram switch networks utilizes the Datagram Approach, which is a connectionless form of packet switching. The "faces" (characteristics) of data transfer in this environment are defined by the lack of prior resource reservation and the independent handling of packets:
+1. Independent Packet Handling: The central characteristic is that the message is divided into packets, and each packet is treated independently.
+2. Full Addressing Requirement: Because there is no established circuit, each packet must carry the full destination address.
+3. Variable Routing Paths: Unlike circuit switching, no dedicated path is reserved. Consequently, packets may follow different routes to the destination.
+4. Out-of-Order Arrival: Since packets travel independently and may take different routes, they may arrive at the destination out of order.
+5. Reordering Requirement: The receiving application or destination device must handle the task of reassembling and reordering the incoming packets to reconstruct the original message.
+6. Connectionless Nature: No formal setup or teardown phase is required before transmission begins, defining it as a connectionless service. The Internet Protocol (IP) is a prime example of the datagram approach.
+explain TCPIP model
+The TCP/IP protocol suite was developed historically before the OSI model. While it originally had four software layers built on hardware, it is now often viewed as a 5-layer model with layer names similar to the OSI model. TCP/IP is fundamental to how addressing and communication work across the internet.
+Addressing Structure: A key feature of the TCP/IP suite is its use of four distinct levels of addresses, each relating to a different layer:
+1. Physical Address (Layer 2 - Data Link): Also called the MAC address, this is the hardware address burned into the Network Interface Card (NIC). It is used only for communication within the same local network (LAN).
+2. Logical Address (Layer 3 - Network): This is the IP address. It is used to identify a device globally across networks.
+3. Port Address (Layer 4 - Transport): This address identifies specific processes or services running on a device (e.g., Port 80 for HTTP or Port 25 for SMTP).
+4. Application-Specific Address (Layer 7 - Application): This is the identifier used at the highest layer to access a resource or service (e.g., a URL like www.example.com or an email address).
+Protocol Functionality: While TCP/IP relies on various protocols, it is important to note the relationship between the Network layer protocol (IP) and its counterpart (ICMP). IP itself has no error-reporting or error correcting mechanism. Therefore, the Internet Control Message Protocol (ICMP) works alongside IP to handle error reporting and diagnostic functions, ensuring that hosts are notified if problems arise, such as a packet being discarded.

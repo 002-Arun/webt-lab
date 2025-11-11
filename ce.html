@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("https://akm-img-a-in.tosshub.com/sites/resources/campus/prod/img/campusview/2023/10/campus1c3a4d9d96e3b268922633810.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            height: 100%;
+            width: 100%;
+        }
+
+        .main {
+            background-color: rgba(0, 128, 128, 0.85);
+            padding: 40px;
+            width: 100%;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            margin: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        #hed{
+            color: rgb(255, 255, 255);
+            border-bottom: black;
+            font-size: 50px;
+        }
+
+
+
+        button:hover {
+            background-color: #003333;
+        }
+         button {
+            width: 100%;
+            background-color: #004d4d;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #003333;
+        }
+         * {
+            box-sizing: border-box;
+        }
+
+       
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .gender-options label {
+            font-weight: normal;
+        }
+        #di{
+            height: 80%;
+            width: 70%;
+            margin: 10%;
+        }
+
+
+</style>
+
+<body>
+    <div id="di">
+        <h1 id="hed"><marquee behavior="scroll" direction="">WELCOME TO PRESIDINCY UNIVERSITY  </marquee></h1>
+       <div class="main">
+        <h1>Registration for Participation</h1>
+        <form action="#" method="post">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="firstName" required>
+
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirmPassword" required>
+
+            <label for="gender">Gender:</label>
+            <div class="gender-options">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="10" max="100" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="Enter 10-digit number">
+
+            <label for="univ-name">University Name:</label>
+            <input type="text" id="univ-name" name="universityName" required>
+
+            <label for="reg-number">University Registration Number:</label>
+            <input type="text" id="reg-number" name="registrationNumber" required>
+
+            <label for="event">Select Cultural Event:</label>
+            <select id="event" name="event" required>
+                <option value="">-- Please select an event --</option>
+                <option value="Music Festivals">Music Festivals</option>
+                <option value="Food Festivals">Food Festivals</option>
+                <option value="Dance Performances">Dance Performances</option>
+                <option value="Exhibitions">Exhibitions</option>
+                <option value="Workshops">Workshops and Classes</option>
+                <option value="Craft Workshops">Craft Workshops</option>
+                <option value="Theater">Theater Productions</option>
+                <option value="Storytelling">Storytelling Sessions</option>
+            </select>
+
+            <label for="reg-date">Date of Registration:</label>
+            <input type="date" id="reg-date" name="regDate" required>
+
+            <button type="submit">Submit Registration</button><br>
+            <button type="submit">proccid to pay</button>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>
